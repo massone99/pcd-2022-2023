@@ -4,11 +4,21 @@ package pcd.lab04.monitors.barrier;
  * Barrier - to be implemented
  */
 public class FakeBarrier implements Barrier {
-	
-	public FakeBarrier() {	}
+
+	private int numThreads;
+
+	public FakeBarrier(int numThreads) {
+		this.numThreads = numThreads;
+	}
 	
 	@Override
-	public void hitAndWaitAll() throws InterruptedException {	
+	public synchronized void hitAndWaitAll()  throws InterruptedException {
+		numThreads--;
+		if (numThreads > 0) {
+			wait();
+		} else {
+			notifyAll();
+		}
 	}
 
 	

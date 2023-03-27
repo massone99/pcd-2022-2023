@@ -10,7 +10,7 @@ public class TestBarrier {
 		int nWorkers = 10;
 
 		/* this barrier is not working */
-		Barrier barrier = new FakeBarrier();
+		Barrier barrier = new FakeBarrier(nWorkers);
 		
 		List<Worker> workers = new ArrayList<Worker>();
 		for (int i = 0; i < nWorkers; i++) {
