@@ -9,11 +9,13 @@ public class Test3_async_apply {
 
 		Executor executor = Executors.newFixedThreadPool(2);
 
+		// Come fare una Callable
 		CompletableFuture.supplyAsync(() -> {
 			log("computing...");
 			waitFor(500);
 			log("done.");
 			return 13;
+			// thenApplyAsync usa il risultato della Callable
 		}).thenApplyAsync(res -> {
 			log("apply to " + res);
 			waitFor(1000);

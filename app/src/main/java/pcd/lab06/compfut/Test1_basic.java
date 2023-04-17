@@ -5,6 +5,8 @@ public class Test1_basic {
 
 	public static void main(String[] args) {
 
+		// L'esecuzione di cf viene iniziata in un thread separato
+		// ma il Main Thread non si ferma
 		CompletableFuture<Void> cf = CompletableFuture.runAsync(() -> {
 			log("doing.");
 			waitFor(500);

@@ -12,7 +12,7 @@ public class TestScalabilityVT {
 			Thread t = Thread.ofVirtual().unstarted(() -> {
 				try {
 					Thread.sleep(Duration.ofSeconds(1));
-				} catch (Exception ex) {
+				} catch (Exception ignored) {
 				}
 			});
 			t.start();
@@ -22,7 +22,7 @@ public class TestScalabilityVT {
 		list.forEach(t -> {
 			try {
 				t.join();
-			} catch (Exception ex) {};
+			} catch (Exception ignored) {};
 		});
 
 		var t1 = System.currentTimeMillis();

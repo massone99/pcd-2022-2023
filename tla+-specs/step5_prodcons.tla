@@ -1,5 +1,4 @@
 --------------------------- MODULE step5_prodcons ---------------------------
-
 EXTENDS TLC, Integers, Sequences
 CONSTANTS MaxQueueSize
 

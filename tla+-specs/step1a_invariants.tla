@@ -1,5 +1,4 @@
 ------------------------- MODULE step1a_invariants -------------------------
-
 EXTENDS TLC, Integers
 
 (*--algorithm step1a_invariants  
