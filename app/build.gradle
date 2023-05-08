@@ -8,6 +8,8 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+  	id "org.openjfx.javafxplugin" version "0.0.13"
+
 }
 
 repositories {
@@ -25,6 +27,16 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
+
+	/* module 2.2 - asynchronous programming - Vert.x */
+    implementation("io.vertx:vertx-core:4.4.1")
+    implementation("io.vertx:vertx-web:4.4.1")
+    implementation("io.vertx:vertx-web-client:4.4.1")
+    
+    /* module 2.3 - reactive programming - RxJava */
+	implementation 'io.reactivex.rxjava3:rxjava:3.1.4'
+    
+
 }
 
 application {
@@ -35,4 +47,12 @@ application {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ["--enable-preview"]
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += ["--enable-preview"]
 }
