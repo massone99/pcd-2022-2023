@@ -19,13 +19,14 @@ public class Test02d_creation_hot {
 						emitter.onNext(i);
 						Thread.sleep(10);
 						i++;
-					} catch (Exception ex){}
+					} catch (Exception ignored){}
 				}
 			}).start();
 		     //emitter.setCancellable(c::close);
 		 });
 		
 		ConnectableObservable<Integer> hotObservable = source.publish();
+		// La connect fa partire il flusso in maniera hot, indipendente dai subscriber
 		hotObservable.connect();
 	
 		/* give time for producing some data before any subscription */
